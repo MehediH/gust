@@ -1,11 +1,27 @@
+import { useState } from "react";
+import Card from "../components/Card";
+import PxToRemConverter from "../components/PxToRemConverter";
+
 export default function Home() {
+  const [rem, setRem] = useState<number>();
+
   return (
-    <div className="container flex items-center p-4 mx-auto min-h-screen justify-center">
-      <main>
-        <h1 className="font-mono text-xl code">
-          Welcome to <span className="text-purple-700">Nextjs</span>, <span className="text-indigo-700">TailwindCSS</span> and <span className="text-gray-700">TypeScript</span>
-        </h1>
+    <div className="bg-gray-900 w-full h-screen text-white font-mono">
+      <main className="max-w-7xl mx-auto py-20 grid grid-cols-2 gap-x-6">
+        <Card>
+          <h1 className="text-2xl">gust</h1>
+
+          <PxToRemConverter
+            className="mt-12 mb-4"
+            onConversion={(v) => setRem(v)}
+          />
+
+          <h1 className="text-xl">{rem}</h1>
+        </Card>
+        <Card>
+          <h1 className="text-2xl">tailwind mapping</h1>
+        </Card>
       </main>
     </div>
-  )
+  );
 }
