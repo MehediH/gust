@@ -2,32 +2,32 @@ import { ChangeEvent, useState } from "react";
 
 interface PxToRemConverterProps {
   className?: string;
-  onConversion?: (v) => void;
+  onConversion?: (px: number, rem: number) => void;
+  onBaseSizeChange?: (px: number) => void;
 }
 
 export default function PxToRemConverter({
   className,
   onConversion,
+  onBaseSizeChange,
 }: PxToRemConverterProps) {
   const [baseFont, setBaseFont] = useState<number>(16);
   const [inputValue, setInputValue] = useState<number>();
-  const [outputValue, setOutputValue] = useState<number>();
 
   const handleConversion = (e: ChangeEvent<HTMLInputElement>) => {
     const input = Number.parseFloat(e.target.value) || null;
 
     setInputValue(input);
-    setOutputValue(input / baseFont);
-    onConversion?.(input / baseFont);
+    onConversion?.(input, input / baseFont);
   };
 
   const handleBaseSizeChange = (e: ChangeEvent<HTMLInputElement>) => {
     const baseFontSize = Number.parseFloat(e.target.value) || null;
 
     setBaseFont(baseFontSize);
-    setOutputValue(inputValue / baseFontSize);
 
-    onConversion?.(inputValue / baseFontSize);
+    onConversion?.(inputValue, inputValue / baseFontSize);
+    onBaseSizeChange?.(baseFontSize);
   };
 
   return (
@@ -37,7 +37,7 @@ export default function PxToRemConverter({
 
         <input
           type="number"
-          value={baseFont}
+          value={baseFont || ""}
           className="mb-4 bg-transparent outline-none text-center mx-2 w-8 border-b-2 border-white"
           onChange={handleBaseSizeChange}
         />
@@ -47,7 +47,7 @@ export default function PxToRemConverter({
       <input
         type="number"
         placeholder="Enter px value here"
-        value={inputValue}
+        value={inputValue || ""}
         onChange={handleConversion}
         className="rounded-lg border-2 w-full bg-transparent outline-none py-2 px-4"
       />
