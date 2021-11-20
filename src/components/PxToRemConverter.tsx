@@ -1,4 +1,5 @@
 import { ChangeEvent, useState } from "react";
+import useLocalStorage from "../lib/useLocalStorage";
 
 interface PxToRemConverterProps {
   className?: string;
@@ -11,7 +12,7 @@ export default function PxToRemConverter({
   onConversion,
   onBaseSizeChange,
 }: PxToRemConverterProps) {
-  const [baseFont, setBaseFont] = useState<number>(16);
+  const [baseFont, setBaseFont] = useLocalStorage<number>("gust-base-font", 16);
   const [inputValue, setInputValue] = useState<number>();
 
   const handleConversion = (e: ChangeEvent<HTMLInputElement>) => {
@@ -38,7 +39,7 @@ export default function PxToRemConverter({
         <input
           type="number"
           value={baseFont || ""}
-          className="mb-4 bg-transparent outline-none text-center mx-2 w-8 border-b-2 border-white"
+          className="mb-4 bg-transparent outline-none text-center mx-2 w-8 border-b-2 border-navy"
           onChange={handleBaseSizeChange}
         />
 
@@ -49,7 +50,7 @@ export default function PxToRemConverter({
         placeholder="Enter px value here"
         value={inputValue || ""}
         onChange={handleConversion}
-        className="rounded-lg border-2 w-full bg-transparent outline-none py-2 px-4"
+        className="rounded-lg border-2 w-full bg-transparent outline-none py-2 px-4 border-navy"
       />
     </div>
   );
