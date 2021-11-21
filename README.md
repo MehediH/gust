@@ -1,4 +1,6 @@
-# gust
+# [gust](https://gust.vercel.app)
+
+[gust.vercel.app](https://gust.vercel.app)
 
 ## what is gust?
 
