@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FiGithub } from "react-icons/fi";
 import Card from "../components/Card";
 import Info from "../components/Info";
 import PxToRemConverter from "../components/PxToRemConverter";
@@ -14,7 +15,25 @@ export default function Home() {
     <div className="bg-cream w-full h-full min-h-screen text-navy font-mono">
       <main className="mx-auto py-10 px-10 grid grid-cols-1 gap-y-10 relative max-w-3xl lg:grid-cols-2 lg:gap-x-20 md:max-w-2xl lg:px-10 lg:py-20 lg:max-w-5xl 2xl:px-0 2xl:max-w-7xl">
         <Card className="lg:sticky lg:top-20">
-          <h1 className="text-3xl md:text-5xl font-display">gust</h1>
+          <div className="flex justify-between items-center">
+            <h1 className="text-3xl md:text-5xl font-display">gust</h1>
+            <div className="flex space-x-5 items-center">
+              <a
+                href="https://builtbymeh.com"
+                target="_blank"
+                className="hover:opacity-70 transition-all"
+              >
+                <img src="/meh.png" className="h-4" />
+              </a>
+              <a
+                href="https://github.com/MehediH/gust"
+                target="_blank"
+                className="hover:opacity-70 transition-all"
+              >
+                <FiGithub size={20} />
+              </a>
+            </div>
+          </div>
 
           <Info className="mt-8" id="what-is-gust">
             <h3 className="leading-10 text-xl">what is gust?</h3>

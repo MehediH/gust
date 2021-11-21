@@ -32,7 +32,7 @@ export default function ResultsCard({ px, rem, base }: ResultsCardProps) {
       <h1 className="text-lg border-b pb-2 border-cream md:text-xl">
         {px}px is {remConverter(rem)}rem
       </h1>
-      <h1 className="text-lg border-b pb-2 border-cream md:text-xl">
+      <h1 className="text-lg pb-2 md:text-xl">
         <div className="flex">
           tailwind naming: {px / 4}
           {!isInTailwind ? `*` : ``}
