@@ -38,11 +38,11 @@ export default function Home() {
           <Info className="mt-8" id="what-is-gust">
             <h3 className="leading-10 text-xl">what is gust?</h3>
             <p className="opacity-90">
-              gust is a simple helper for tailwind that allows you to convert
-              pixel values to their tailwind mapping. if a pixel value does not
-              exist in the default tailwind config, gust provides you with the
-              name and rem value that you can add to your tailwind config and
-              use straight away.
+              gust is a simple helper for tailwind that allows you to enter
+              pixel values and get the equivalent name in the tailwind spacing
+              scale. if a pixel value does not exist in the default tailwind
+              spacing scale, gust provides you with the name and rem value that
+              you can add to your tailwind config and use straight away.
             </p>
           </Info>
 
