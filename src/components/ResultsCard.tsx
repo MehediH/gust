@@ -29,10 +29,10 @@ export default function ResultsCard({ px, rem, base }: ResultsCardProps) {
 
   return (
     <Info canClose={false} className="space-y-4">
-      <h1 className="text-xl border-b pb-2 border-cream">
+      <h1 className="text-lg border-b pb-2 border-cream md:text-xl">
         {px}px is {remConverter(rem)}rem
       </h1>
-      <h1 className="text-xl border-b pb-2 border-cream">
+      <h1 className="text-lg border-b pb-2 border-cream md:text-xl">
         <div className="flex">
           tailwind naming: {px / 4}
           {!isInTailwind ? `*` : ``}
@@ -49,7 +49,7 @@ export default function ResultsCard({ px, rem, base }: ResultsCardProps) {
             </code>
           </a>
         )}
-        <ul className="flex space-x-2 text-xs my-2">
+        <ul className="flex text-xs my-2 flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
           <span>examples:</span>
           <li className="rounded-lg px-1 border border-cream flex items-center">
             w-{px / 4}

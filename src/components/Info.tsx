@@ -8,6 +8,7 @@ interface InfoProps {
   children?: ReactNode;
   className?: string;
   canClose?: boolean;
+  variant?: "cream" | "navy";
 }
 
 export default function Info({
@@ -15,6 +16,7 @@ export default function Info({
   children,
   className,
   canClose = true,
+  variant = "navy",
 }: InfoProps) {
   const [isHidden, setIsHidden] = useLocalStorage<boolean>(
     `gust-info-${id}`,
@@ -31,10 +33,14 @@ export default function Info({
 
   return (
     <div
-      className={classNames(
-        "rounded-lg p-6 self-start font-body bg-navy text-cream relative",
-        className
-      )}
+      className={classNames([
+        `rounded-lg p-6 self-start font-body relative border-2`,
+        {
+          "bg-navy border-navy text-cream": variant === "navy",
+          "bg-cream border-navy text-navy": variant === "cream",
+        },
+        className,
+      ])}
     >
       {canClose && (
         <FiX
